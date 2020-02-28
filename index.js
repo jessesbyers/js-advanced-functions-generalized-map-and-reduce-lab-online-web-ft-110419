@@ -6,14 +6,24 @@ function map(array, block) {
     return newArray
 } 
 
-function reduce(array, block, value=0) {
-    let answer
+function reduce(array, block, start=0) {
+    let value = start
 
-    array.forEach(element => {
-       answer = block(element, value)
+    array.forEach(num => {
+       value = block(num, start)
     })
-    return answer
+    return value
 }
+
+
+// function reduceToTotal(array, start=0) {
+//     let value = start
+//     array.forEach(num => {
+//         value = value + num
+//     })
+//     return value
+// }
+
 
 // function reduce(array, block, value=0) {
 //     let answer
