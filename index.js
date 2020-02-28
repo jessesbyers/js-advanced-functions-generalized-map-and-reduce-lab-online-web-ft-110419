@@ -6,12 +6,10 @@ function map(array, block) {
     return newArray
 } 
 
-function reduce(array, block, start=0) {
-    let value = start
-
-    array.forEach(num => {
-           value = block(value, num, start)
-    })
-    
+function reduce(array, block, start) {
+    let value = !!start ? start : array[0];
+    for (let i = !!start ? 0 : 1; i < array.length; i++) {
+        value = block(array[i], value)
+    }
     return value
 }
